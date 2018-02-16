@@ -124,9 +124,9 @@ class FuzzyKNN(BaseEstimator, ClassifierMixin):
 	def _check_params(self, X, y):
 		if type(self.k) != int:
 			raise Exception('"k" should have type int')
-		elif self.k >= len(y):
+		if self.k >= len(y):
 			raise Exception('"k" should be less than no of feature sets')
-		elif self.k % 2 == 0:
+		if self.k % 2 == 0:
 			raise Exception('"k" should be odd')
 
 		if type(self.plot) != bool:
